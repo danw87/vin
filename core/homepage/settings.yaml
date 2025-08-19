@@ -1,0 +1,8 @@
+title: Vin
+
+layout:
+  Media:
+    style: row
+    columns: 4
+
+showStats: true
