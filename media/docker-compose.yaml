@@ -20,3 +20,15 @@ services:
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
       - 'host.docker.internal:host-gateway'
+  ytdl-sub:
+    image: ghcr.io/jmbannon/ytdl-sub-gui:latest
+    container_name: ytdl-sub
+    network_mode: 'host'
+    environment:
+      - TZ=Europe/London
+      - CRON_SCHEDULE="0 */6 * * *"
+      - CRON_RUN_ON_START=true
+    volumes:
+      - /home/docker/media/ytdl-sub/config:/config
+      - /home/docker/media/jellyfin/media:/media
+    restart: unless-stopped 
