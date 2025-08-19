@@ -23,7 +23,8 @@ services:
   ytdl-sub:
     image: ghcr.io/jmbannon/ytdl-sub-gui:latest
     container_name: ytdl-sub
-    network_mode: 'host'
+    ports:
+      - 8443:8443
     environment:
       - TZ=Europe/London
       - CRON_SCHEDULE="0 */6 * * *"
