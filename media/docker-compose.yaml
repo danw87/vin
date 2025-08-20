@@ -21,7 +21,7 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
   ytdl-sub:
-    image: ghcr.io/jmbannon/ytdl-sub-gui:latest
+    image: ghcr.io/jmbannon/ytdl-sub:latest
     container_name: ytdl-sub
     ports:
       - 8443:8443
