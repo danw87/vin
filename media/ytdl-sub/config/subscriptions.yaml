@@ -1,0 +1,33 @@
+# subscriptions.yaml:
+# Everything in here can be downloaded using the command:
+#   ytdl-sub sub subscriptions.yaml
+
+# __preset__ is a place to define global overrides for all subscriptions
+__preset__:
+  overrides:
+    # Root folder of all ytdl-sub TV Shows
+    tv_show_directory: "/media/default"
+
+    # Root folder of all ytdl-sub Music
+    #music_directory: "/music"
+
+    # Root folder of all ytdl-sub Music Videos
+    #music_video_directory: "/music_videos"
+
+    # For 'Only Recent' preset, only keep vids within this range and limit
+    only_recent_date_range: "2months"
+    only_recent_max_files: 5
+
+  # Pass any arg directly to yt-dlp's Python API
+  ytdl_options:
+    cookiefile: "/config/cookie.txt"
+
+###################################################################
+YT Sophie:
+  = Kids | = TV-Y:
+    "Nursery Rhymes": "https://www.youtube.com/playlist?list=PLthepvXmJAlZbC40xy7t1-RgwkTKB84g-"
+    "Treebees": "https://www.youtube.com/watch?v=6Rcg8A9hPyI&list=PLQA7pDcpSBlc2q0zJElAvisElCCAnh1BU"
+    "Miss Rachel": "https://www.youtube.com/watch?v=hTqtGJwsJVE&list=PLthepvXmJAlabpoggzFfKjXeD2g5evwGw&pp=gAQB"
+    "Tractor Ted": "https://www.youtube.com/playlist?list=PLthepvXmJAlZs6h10QcEsJrnfS4LeBVnm"
+    "Super Simpe Songs": "https://www.youtube.com/watch?v=B1u-ylQR6Fo&list=PLQA7pDcpSBlec7bwnBCN7spvyuZ2DKwKa"
+
