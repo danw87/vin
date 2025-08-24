@@ -1,0 +1,57 @@
+# Bare-bones config. Here are some useful links to get started:
+#   Walk-through Guide:  https://ytdl-sub.readthedocs.io/en/latest/guides/index.html
+#   Config Examples:     https://github.com/jmbannon/ytdl-sub/tree/master/examples
+#   Prebuilt Presets:    https://ytdl-sub.readthedocs.io/en/latest/prebuilt_presets/index.html
+#   Config Reference:    https://ytdl-sub.readthedocs.io/en/latest/config_reference/index.html
+#
+# The subscriptions in `subscriptions.yaml` uses prebuilt presets which do not require
+# any additions to this config. They can be downloaded using the command:
+#
+#   ytdl-sub --config config.yaml sub subscriptions.yaml
+#
+# Or dry-ran with:
+#
+#   ytdl-sub --dry-run --config config.yaml sub subscriptions.yaml
+#
+# See the documentation above on how to build your own custom presets.
+#
+configuration:
+  working_directory: ".ytdl-sub-working-directory"
+
+presets:
+  YT Base:
+    preset:
+      - "Jellyfin TV Show by Date"
+    overrides:
+      custom_path_base: "/media/default" # default to catch anything not set
+      episode_title: "{title_sanitized}"  # Only sets the video title, not path
+      
+      #build out paths for different files
+      output_directory: "{custom_path_base}/{tv_show_name_sanitized}"
+      file_name: "{episode_file_path}.{ext}"
+
+
+      episode_file_name: "{file_title}"
+      episode_file_path: "{episode_file_name_sanitized}"
+      thumbnail_file_name: "{episode_file_path}-thumb.jpg"
+
+    output_options:
+      file_name: "{episode_file_path}.{ext}"
+      output_directory: "{custom_path_base}/{subscription_name_sanitized}"
+      thumbnail_name: "{episode_file_path}-thumb.jpg"
+      info_json_name: "{episode_file_path}.{info_json_ext}"
+
+
+  YT Sophie:
+    preset:
+      - "YT Base"
+      - "Max 1080p"
+    overrides:
+      custom_path_base: "/media/Sophie"
+
+  YT Dan:
+    preset:
+      - "YT Base"
+      - "Max Video Quality"
+    overrides:
+      custom_path_base: "/media/Dan"
